@@ -29,7 +29,7 @@ sensor:
 
   # Centauri Carbon Print Progress
   - platform: homeassistant
-    entity_id: sensor.centauri_carbon_percent_complete
+    entity_id: sensor.centauri_carbon_percent_complete_helper
     id: centauri_carbon_percent
     on_value:
       - lvgl.label.update:
