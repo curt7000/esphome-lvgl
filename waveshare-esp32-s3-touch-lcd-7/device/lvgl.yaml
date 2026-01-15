@@ -304,6 +304,7 @@ lvgl:
                         text_font: roboto17_font
                         text_color: 0xFFFFFF
                         text: "%"
+                        y: -10
               - label:
                   align: bottom_left
                   text: "Dryer"
