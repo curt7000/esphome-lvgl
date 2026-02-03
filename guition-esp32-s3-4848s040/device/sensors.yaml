@@ -413,10 +413,6 @@ binary_sensor:
             state:
               checked: !lambda return x;
         - lvgl.widget.update:
-            id: aircon_lab_power_button
-            state:
-              checked: !lambda return x;
-        - lvgl.widget.update:
             id: aircon_temp_up_button
             hidden: !lambda return !x;
         - lvgl.widget.update:

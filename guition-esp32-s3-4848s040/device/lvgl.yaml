@@ -1093,26 +1093,3 @@ lvgl:
                               return id(aircon_target_temperature).state + 1.0f;
                             }
                             return 0.0f;
-
-              # Power button
-              - button:
-                  id: aircon_lab_power_button
-                  width: 140px
-                  height: 70px
-                  x: 320
-                  y: 10
-                  styles: control
-                  checkable: true
-                  widgets:
-                    - label:
-                        text_font: $icon_font
-                        align: left_mid
-                        text: $aircon
-                    - label:
-                        align: right_mid
-                        text: "Power"
-                  on_click:
-                    - homeassistant.service:
-                        service: switch.toggle
-                        data:
-                          entity_id: switch.office_air_conditioner
