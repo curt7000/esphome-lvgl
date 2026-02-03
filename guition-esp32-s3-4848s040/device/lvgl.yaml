@@ -70,7 +70,7 @@ lvgl:
       layout: 
         type: flex
         flex_flow: column_wrap
-      scrollbar_mode: "auto"
+      scrollbar_mode: "off"
       scroll_dir: "hor"
       width: 100%
       bg_color: Black
@@ -531,7 +531,7 @@ lvgl:
       layout: 
         type: flex
         flex_flow: column_wrap
-      scrollbar_mode: "auto"
+      scrollbar_mode: "off"
       scroll_dir: "hor"
       width: 100%
       bg_color: Black
