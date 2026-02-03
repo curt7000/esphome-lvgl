@@ -79,6 +79,8 @@ lvgl:
       pad_bottom: 5
       pad_left: 5
       pad_right: 5
+      pad_row: 6
+      pad_column: 6
       
       widgets:
       
@@ -551,6 +553,8 @@ lvgl:
       pad_bottom: 5
       pad_left: 5
       pad_right: 5
+      pad_row: 6
+      pad_column: 6
 
       widgets:
 
