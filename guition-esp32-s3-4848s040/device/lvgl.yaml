@@ -974,6 +974,7 @@ lvgl:
                   x: 415
                   y: 34
                   styles: control
+                  checkable: true
                   widgets:
                     - label:
                         text_font: $icon_font
