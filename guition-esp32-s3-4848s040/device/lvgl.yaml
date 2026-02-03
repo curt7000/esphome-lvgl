@@ -976,7 +976,7 @@ lvgl:
                   y: 60
                   width: 400
                   height: 400
-                  min_value: 8
+                  min_value: 14
                   max_value: 25
                   start_angle: 135
                   end_angle: 45
@@ -996,7 +996,9 @@ lvgl:
                         service: climate.set_temperature
                         data:
                           entity_id: climate.office_air_conditioner
-                          temperature: !lambda return x;
+                          temperature: !lambda |-
+                            if (x < 16) return 16.0f;
+                            return x;
 
               # Arc indicator for current temperature (read-only)
               - arc:
@@ -1005,7 +1007,7 @@ lvgl:
                   y: 60
                   width: 400
                   height: 400
-                  min_value: 8
+                  min_value: 14
                   max_value: 25
                   start_angle: 135
                   end_angle: 45
