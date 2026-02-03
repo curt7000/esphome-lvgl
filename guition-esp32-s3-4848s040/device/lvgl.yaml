@@ -805,7 +805,7 @@ lvgl:
                   text_font: roboto44_font
                   align: top_left
                   id: aircon_temp_label
-                  text: "--°"
+                  text: "--"
                   text_color: 0xFFFFFF
               - label:
                   align: bottom_left
@@ -905,7 +905,7 @@ lvgl:
                   text_font: roboto44_font
                   align: top_left
                   id: aircon_set_temp_label
-                  text: "--°"
+                  text: "--"
                   text_color: 0xFFFFFF
               - label:
                   align: bottom_left
