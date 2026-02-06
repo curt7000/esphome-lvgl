@@ -212,11 +212,7 @@ sensor:
             args: [ 'x' ]
       - lvgl.arc.update:
           id: heating_current_arc
-          value: !lambda |-
-            int v = (int)roundf(x * 2.0f);
-            if (v < 20) v = 20;
-            if (v > 64) v = 64;
-            return v;
+          value: !lambda return (int)roundf(x * 2.0f);
       - lvgl.arc.update:
           id: heating_delta_arc
           value: !lambda |-
@@ -227,10 +223,6 @@ sensor:
             }
             int cur_v = (int)roundf(cur * 2.0f);
             int tgt_v = (int)roundf(tgt * 2.0f);
-            if (cur_v < 20) cur_v = 20;
-            if (cur_v > 64) cur_v = 64;
-            if (tgt_v < 20) tgt_v = 20;
-            if (tgt_v > 64) tgt_v = 64;
             return cur_v > tgt_v ? cur_v : tgt_v;
       - lvgl.arc.update:
           id: heating_mask_arc
@@ -242,10 +234,6 @@ sensor:
             }
             int cur_v = (int)roundf(cur * 2.0f);
             int tgt_v = (int)roundf(tgt * 2.0f);
-            if (cur_v < 20) cur_v = 20;
-            if (cur_v > 64) cur_v = 64;
-            if (tgt_v < 20) tgt_v = 20;
-            if (tgt_v > 64) tgt_v = 64;
             return cur_v < tgt_v ? cur_v : tgt_v;
 
   # ===========================================================================
@@ -273,18 +261,10 @@ sensor:
             args: [ 'x' ]
       - lvgl.arc.update:
           id: heating_track_arc
-          value: !lambda |-
-            int v = (int)roundf(x * 2.0f);
-            if (v < 20) v = 20;
-            if (v > 64) v = 64;
-            return v;
+          value: !lambda return (int)roundf(x * 2.0f);
       - lvgl.arc.update:
           id: heating_target_dot_arc
-          value: !lambda |-
-            int v = (int)roundf(x * 2.0f);
-            if (v < 20) v = 20;
-            if (v > 64) v = 64;
-            return v;
+          value: !lambda return (int)roundf(x * 2.0f);
       - lvgl.arc.update:
           id: heating_delta_arc
           value: !lambda |-
@@ -295,10 +275,6 @@ sensor:
             }
             int cur_v = (int)roundf(cur * 2.0f);
             int tgt_v = (int)roundf(tgt * 2.0f);
-            if (cur_v < 20) cur_v = 20;
-            if (cur_v > 64) cur_v = 64;
-            if (tgt_v < 20) tgt_v = 20;
-            if (tgt_v > 64) tgt_v = 64;
             return cur_v > tgt_v ? cur_v : tgt_v;
       - lvgl.arc.update:
           id: heating_mask_arc
@@ -310,10 +286,6 @@ sensor:
             }
             int cur_v = (int)roundf(cur * 2.0f);
             int tgt_v = (int)roundf(tgt * 2.0f);
-            if (cur_v < 20) cur_v = 20;
-            if (cur_v > 64) cur_v = 64;
-            if (tgt_v < 20) tgt_v = 20;
-            if (tgt_v > 64) tgt_v = 64;
             return cur_v < tgt_v ? cur_v : tgt_v;
 
 # =============================================================================
