@@ -106,6 +106,8 @@ lvgl:
             checkable: false
             id: office_scene_features_button
             styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 0
             widgets:
               - label:
                   text_font: $icon_font
@@ -143,6 +145,8 @@ lvgl:
             checkable: false
             id: office_scene_calls_button
             styles: control
+            grid_cell_column_pos: 1
+            grid_cell_row_pos: 0
             widgets:
               - label:
                   text_font: $icon_font
@@ -180,6 +184,8 @@ lvgl:
             checkable: false
             id: office_scene_evening_button
             styles: control
+            grid_cell_column_pos: 2
+            grid_cell_row_pos: 0
             widgets:
               - label:
                   text_font: $icon_font
@@ -217,6 +223,8 @@ lvgl:
             checkable: false
             id: office_scene_dimmed_button
             styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 1
             widgets:
               - label:
                   text_font: $icon_font
@@ -245,6 +253,8 @@ lvgl:
             checkable: false
             id: blinds_nav_button
             styles: control
+            grid_cell_column_pos: 1
+            grid_cell_row_pos: 1
             widgets:
               - label:
                   text_font: $icon_font
@@ -280,6 +290,8 @@ lvgl:
             checkable: true
             id: printer_power_button
             styles: control
+            grid_cell_column_pos: 2
+            grid_cell_row_pos: 1
             widgets:
               # Icon (shown when OFF)
               - label:
@@ -346,6 +358,8 @@ lvgl:
             checkable: true
             id: filament_heater_button
             styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 2
             widgets:
               # Icon (shown when OFF)
               - label:
@@ -408,6 +422,8 @@ lvgl:
             checkable: true
             id: office_aircon_button
             styles: control
+            grid_cell_column_pos: 1
+            grid_cell_row_pos: 2
             widgets:
               - label:
                   text_font: $icon_font
@@ -434,6 +450,8 @@ lvgl:
             checkable: false
             id: extras_nav_button
             styles: control
+            grid_cell_column_pos: 2
+            grid_cell_row_pos: 2
             widgets:
               - label:
                   text_font: $icon_font
@@ -471,6 +489,8 @@ lvgl:
             checkable: false
             id: extras_back_button
             styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 0
             widgets:
               - label:
                   text_font: $icon_font
@@ -491,6 +511,8 @@ lvgl:
             checkable: false
             id: heating_lab_nav_button
             styles: control
+            grid_cell_column_pos: 1
+            grid_cell_row_pos: 0
             widgets:
               - label:
                   text_font: $icon_font
@@ -522,6 +544,8 @@ lvgl:
             checkable: true
             id: battery_charger_button
             styles: control
+            grid_cell_column_pos: 2
+            grid_cell_row_pos: 0
             widgets:
               - label:
                   text_font: $icon_font
@@ -558,6 +582,8 @@ lvgl:
             checkable: true
             id: storage_lights_button
             styles: control
+            grid_cell_column_pos: 0
+            grid_cell_row_pos: 1
             widgets:
               - label:
                   text_font: $icon_font
@@ -594,6 +620,8 @@ lvgl:
             checkable: true
             id: network_rack_button
             styles: control
+            grid_cell_column_pos: 1
+            grid_cell_row_pos: 1
             widgets:
               - label:
                   text_font: $icon_font
