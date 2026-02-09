@@ -115,8 +115,9 @@ display:
   - platform: mipi_dsi
     id: my_display
     model: JC1060P470
-#    reset_pin:
-#      number: GPIO05
-#    rotation: 0
-#    update_interval: never
-#    auto_clear_enabled: false
+    reset_pin:
+      number: GPIO05
+    rotation: 0
+    update_interval: never
+    auto_clear_enabled: false
+    color_order: BGR
