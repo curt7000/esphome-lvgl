@@ -9,7 +9,7 @@ lvgl:
       - label:
           text: "-° / -°"
           id: temperatures
-          styles: roboto16_style
+          styles: roboto24_style
           align: top_left
           x: 8
           y: 4
@@ -19,7 +19,7 @@ lvgl:
       - label:
           text: "--:--"
           id: display_time
-          styles: roboto16_style
+          styles: roboto24_style
           align: top_mid
           x: 0
           y: 4
@@ -45,7 +45,7 @@ lvgl:
       
         # Office Features Scene
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: office_scene_features_button
@@ -68,7 +68,7 @@ lvgl:
 
         # Office Calls Scene
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: office_scene_calls_button
@@ -91,7 +91,7 @@ lvgl:
 
         # Office Evening Scene
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: office_scene_evening_button
@@ -114,7 +114,7 @@ lvgl:
 
         # Office Dimmed Scene
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: office_scene_dimmed_button
@@ -137,7 +137,7 @@ lvgl:
 
         # Office Blind 100%
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: office_blind_open_button
@@ -159,7 +159,7 @@ lvgl:
 
         # Office Blind 66%
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: office_blind_66_button
@@ -181,7 +181,7 @@ lvgl:
 
         # Office Blind 33%
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: office_blind_33_button
@@ -203,7 +203,7 @@ lvgl:
 
         # Office Blind 0%
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: office_blind_close_button
@@ -226,7 +226,7 @@ lvgl:
 
         # 3d Printer
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: printer_power_button
@@ -274,7 +274,7 @@ lvgl:
 
         # Filament Heater
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: filament_heater_button
@@ -322,7 +322,7 @@ lvgl:
 
         # Office Aircon
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: office_aircon_button
@@ -341,7 +341,7 @@ lvgl:
 
         # Battery Charger
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: battery_charger_button
@@ -364,7 +364,7 @@ lvgl:
 
         # Storage Lights
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: storage_lights_button
@@ -387,7 +387,7 @@ lvgl:
 
         # Network Rack
         - button: 
-            height: $button_height_single
+            height: $button_height
             width: $button_width
             checkable: true
             id: network_rack_button
