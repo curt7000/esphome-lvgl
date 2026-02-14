@@ -20,17 +20,17 @@ This repository contains ESPHome configurations for creating beautiful, touch-en
 
 ## Supported Devices
 
-**Guition ESP32-P4 JC1060P470** (7", ~£40)
+**[Guition ESP32-P4 JC1060P470](guition-esp32-p4-jc1060p470/README.md)** (7", ~£40)
 
-![Guition ESP32-P4 JC1060P470](guition-esp32-p4-jc1060p470.jpg)
+![Guition ESP32-P4 JC1060P470](guition-esp32-p4-jc1060p470/guition-esp32-p4-jc1060p470.jpg)
 
-**Guition ESP32-S3 4848S040** (4.0", ~£16)
+**[Guition ESP32-S3 4848S040](guition-esp32-s3-4848s040/README.md)** (4.0", ~£16)
 
-![Guition ESP32-S3 4848S040](guition-esp32-s3-4848s040.jpg)
+![Guition ESP32-S3 4848S040](guition-esp32-s3-4848s040/guition-esp32-s3-4848s040.jpg)
 
-**Waveshare ESP32-S3 Touch LCD 7"** (~£40)
+**[Waveshare ESP32-S3 Touch LCD 7"](waveshare-esp32-s3-touch-lcd-7/README.md)** (~£40)
 
-![Waveshare ESP32-S3 Touch LCD 7](waveshare-esp32-s3-touch-lcd-7.jpg)
+![Waveshare ESP32-S3 Touch LCD 7](waveshare-esp32-s3-touch-lcd-7/waveshare-esp32-s3-touch-lcd-7.jpg)
 
 ## Where to Buy
 
@@ -46,9 +46,9 @@ Desk/desktop stands (3D printable models on MakerWorld):
 
 | Device | Stand |
 |--------|-------|
-| Guition ESP32-P4 JC1060P470 (7") | [Desk mount](https://makerworld.com/en/models/2387421-guition-esp32p4-jc1060p470-7inch-screen-desk-mount#profileId-2614995) |
-| Guition ESP32-S3 4848S040 (4.0") | [Desktop stand](https://makerworld.com/en/models/2327976-touch-screen-desktop-stand-for-guition-4848s040#profileId-2543111) |
-| Waveshare ESP32-S3 Touch LCD 7" | [Desk stand](https://makerworld.com/en/models/1009516-desk-stand-for-7inch-waveshare-touch-screen#profileId-2439605) |
+| Guition ESP32-P4 JC1060P470 (7") | [Link](https://makerworld.com/en/models/2387421-guition-esp32p4-jc1060p470-7inch-screen-desk-mount#profileId-2614995) |
+| Guition ESP32-S3 4848S040 (4.0") | [Link](https://makerworld.com/en/models/2327976-touch-screen-desktop-stand-for-guition-4848s040#profileId-2543111) |
+| Waveshare ESP32-S3 Touch LCD 7" | [Link](https://makerworld.com/en/models/1009516-desk-stand-for-7inch-waveshare-touch-screen#profileId-2439605) |
 
 ## Quick Start
 

@@ -1,0 +1,31 @@
+# Guition ESP32-P4 JC1060P470 (7")
+
+7-inch touch LCD panel with ESP32-P4, running ESPHome and LVGL for home automation and sensor displays.
+
+![Guition ESP32-P4 JC1060P470](guition-esp32-p4-jc1060p470.jpg)
+
+## Configuration
+
+- **Template**: [esphome/template.yaml](esphome/template.yaml) — use this as your starting point in the ESPHome dashboard or CLI.
+
+## Where to Buy
+
+- **Panel**: [AliExpress](https://s.click.aliexpress.com/e/_c335W0r5) (~£40)
+
+## Stand
+
+- **Desk mount** (3D printable): [MakerWorld](https://makerworld.com/en/models/2387421-guition-esp32p4-jc1060p470-7inch-screen-desk-mount#profileId-2614995)
+
+## Folder Structure
+
+```
+guition-esp32-p4-jc1060p470/
+├── addon/          # Time, network, backlight
+├── assets/         # Fonts and icons
+├── device/         # device.yaml, sensors.yaml, lvgl.yaml
+├── esphome/        # template.yaml
+├── theme/          # Button and UI styling
+└── guition-esp32-p4-jc1060p470.jpg
+```
+
+Customize for your setup by editing the YAML files under `device/`, `addon/`, and `theme/`. See the [main README](../README.md) for full quick start and ESPHome setup.
