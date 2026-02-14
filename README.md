@@ -79,6 +79,14 @@ Follow these steps in order. The first flash is the only fiddly part; after that
 
 **Optional:** To change what’s on the display, edit the YAML in the device folder: `device/device.yaml`, `device/sensors.yaml`, `device/lvgl.yaml`, plus `addon/`, `assets/`, and `theme/` as needed.
 
+## Resources
+
+- [ESPHome LVGL documentation](https://esphome.io/components/lvgl/index.html)
+- [Getting started with ESPHome](https://esphome.io/guides/getting_started_hassio/)
+- [LVGL hints and tips](https://esphome.io/cookbook/lvgl/)
+- [Setup guide video](https://www.youtube.com/watch?v=AAMMob9f-mk&t=857s)
+- [LVGL-specific install video](https://www.youtube.com/watch?v=8TuYq-6c5ok)
+
 ## Home Assistant Stateful Scenes
 
 The lighting scene examples in this project assume you are using the Stateful Scenes integration for Home Assistant so scene state can be inferred reliably (for example, keeping a scene switch "on" when all scene entities match). Install and configure the add-on here: https://github.com/hugobloem/stateful_scenes.
