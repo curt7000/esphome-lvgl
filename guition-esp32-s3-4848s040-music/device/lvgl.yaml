@@ -39,7 +39,7 @@ lvgl:
             id: media_title_label
             text: "—"
             x: 12
-            y: 332
+            y: 352
             width: 284px
             height: 30px
             long_mode: dot
@@ -51,7 +51,7 @@ lvgl:
             id: media_artist_label
             text: "—"
             x: 12
-            y: 364
+            y: 392
             width: 284px
             text_font: roboto19_font
             text_color: 0xD0D0D0
@@ -62,7 +62,7 @@ lvgl:
         - button:
             id: media_play_pause_button
             x: 308
-            y: 324
+            y: 344
             width: 72px
             height: 72px
             styles: control_round
@@ -90,7 +90,7 @@ lvgl:
         - button:
             id: media_next_button
             x: 396
-            y: 324
+            y: 344
             width: 72px
             height: 72px
             styles: control_round
