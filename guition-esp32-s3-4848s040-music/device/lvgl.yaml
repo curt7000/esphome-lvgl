@@ -29,7 +29,7 @@ lvgl:
             width: 100%
             height: 100%
             src: album_art_background
-            img_opa: 40%
+            opa: 40%
 
         # Album art (top) - 150x150 for faster download; centered in content area
         - image:
