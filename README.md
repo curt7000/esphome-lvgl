@@ -58,7 +58,7 @@ Desk/desktop stands (3D printable models on MakerWorld):
 
 ### 2. Use a Device Template
 
-Pick the template.yaml for your specific device and start from that file:
+Pick the `template.yaml` for your specific device. **Use the contents of that file as your ESPHome config** — in the ESPHome dashboard or CLI, create or edit your device configuration so it matches the contents of `template.yaml` (paths in the template are relative to the device folder, so keep the repo structure or adjust paths as needed).
 
 ```yaml
 # Example: guition-esp32-s3-4848s040/esphome/template.yaml
@@ -90,13 +90,26 @@ Each template pulls in modular components that you can customize:
 
 ## Getting Started with ESPHome
 
-1. **Install ESPHome**: Follow the [ESPHome installation guide] (https://esphome.io/guides/installing_esphome.html)
+1. **Install ESPHome**: Follow the [ESPHome installation guide](https://esphome.io/guides/installing_esphome.html)
 
-2. **Copy the repo**: Use the device template in `*/esphome/` as your starting configuration
+2. **Copy the repo**: Use the contents of each device's `esphome/template.yaml` as your ESPHome config (paste or import it as the main configuration for that device).
 
-3. **Customize**: Update the substitutions and modify components as needed for your specific setup
+3. **Customize**: Update the substitutions and modify components as needed for your specific setup.
 
-4. **Flash**: Compile and flash to your ESP32 device
+4. **Flash**: Compile and flash to your device — see **First-time flashing** below for the full process.
+
+## First-time flashing
+
+You need to put a **base image** on the device first (with your config and WiFi details). After that, you can usually use **OTA (over-the-air)** to flash updates over WiFi. The first flash is the only fiddly part; once it’s done, updates are straightforward.
+
+### Recommended method: USB + ESPHome dashboard
+
+1. **Run the ESPHome dashboard** (e.g. `esphome run` or your local ESPHome web UI).
+2. **Connect the board with a USB cable** and open the dashboard in **Chrome**.
+3. **Flash the device** from the dashboard. Chrome’s Web Serial support is used for the connection; other browsers may not work.
+4. **Drivers**: If your computer doesn’t see the board, you may need USB drivers. ESPHome will prompt you when needed and provide links (e.g. CP210x, CH340) for your OS.
+5. **Boot/reset once (if needed)**: Many boards ship with a demo firmware. If the first flash doesn’t take, put the board into **flashing mode** by holding the **boot** button and pressing **reset**, then try flashing again. You typically only need to do this once to replace the factory demo.
+6. **After a successful flash**, the device should show up in the **ESPHome dashboard** and in **Home Assistant** as a discovered device. Later updates can usually be done over WiFi via OTA.
 
 ## Home Assistant Stateful Scenes
 

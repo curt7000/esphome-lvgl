@@ -6,7 +6,7 @@
 
 ## Configuration
 
-- **Template**: [esphome/template.yaml](esphome/template.yaml) — use this as your starting point in the ESPHome dashboard or CLI.
+- **Template**: [esphome/template.yaml](esphome/template.yaml) — use the **contents of this file as your ESPHome config** in the dashboard or CLI (create or edit your device config so it matches this file).
 
 ## Where to Buy
 
