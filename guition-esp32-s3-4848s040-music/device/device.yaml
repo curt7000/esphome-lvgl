@@ -152,6 +152,46 @@ touchscreen:
   - platform: gt911
     id: tft_touch
     display: tft_display
+    on_update:
+      - lambda: |-
+          for (auto touch: touches) {
+            // state 6 = moved + released (completed swipe gesture)
+            if (touch.state == 6) {
+              int dx = touch.x - touch.x_org;
+              int dy = touch.y - touch.y_org;
+              // Require 80px+ horizontal movement and must be clearly horizontal
+              if (abs(dx) > 80 && abs(dx) > abs(dy) * 2) {
+                if (dx > 0) {
+                  id(swipe_previous_track).execute();
+                } else {
+                  id(swipe_next_track).execute();
+                }
+              }
+            }
+          }
+
+
+# -----------------------------------------------------------------------------
+# SWIPE GESTURE SCRIPTS
+# -----------------------------------------------------------------------------
+# Called by the touchscreen on_update lambda when a horizontal swipe is
+# detected. mode: single prevents duplicate triggers from rapid swipes.
+# -----------------------------------------------------------------------------
+script:
+  - id: swipe_next_track
+    mode: single
+    then:
+      - homeassistant.service:
+          service: media_player.media_next_track
+          data:
+            entity_id: ${media_player}
+  - id: swipe_previous_track
+    mode: single
+    then:
+      - homeassistant.service:
+          service: media_player.media_previous_track
+          data:
+            entity_id: ${media_player}
 
 
 # -----------------------------------------------------------------------------

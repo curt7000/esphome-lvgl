@@ -93,6 +93,7 @@ lvgl:
             y: 344
             width: 72px
             height: 72px
+            hidden: true
             styles: control_round
             widgets:
               - label:
@@ -105,6 +106,35 @@ lvgl:
                   service: media_player.media_next_track
                   data:
                     entity_id: ${media_player}
+
+        - button:
+            id: media_previous_button
+            x: 396
+            y: 344
+            width: 72px
+            height: 72px
+            hidden: true
+            styles: control_round
+            widgets:
+              - label:
+                  text_font: $icon_font
+                  align: center
+                  text: $skip_previous
+                  text_color: 0xFFFFFF
+            on_press:
+              - homeassistant.service:
+                  service: media_player.media_previous_track
+                  data:
+                    entity_id: ${media_player}
+
+        # TV mode: centered source label, shown only when source is "TV"
+        - label:
+            id: tv_source_label
+            text: "TV"
+            align: center
+            text_font: roboto30_font
+            text_color: 0xFFFFFF
+            hidden: true
 
         # Play clocks: elapsed (left) and duration (right), below buttons and above progress bar
         - label:
