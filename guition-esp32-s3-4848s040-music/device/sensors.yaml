@@ -22,44 +22,48 @@ globals:
 interval:
   - interval: 1s
     then:
-      - lvgl.label.update:
-          id: media_elapsed_label
-          text: !lambda |-
-            float pos = id(last_position_timestamp) != 0 && id(media_position_sensor).has_state()
-              ? id(media_position_sensor).state : id(last_media_position);
-            if (id(media_player_state_sensor).state == "playing") {
-              auto t = id(sntp_time).now();
-              if (t.is_valid() && id(last_position_timestamp) != 0) {
-                pos = id(last_media_position) + (t.timestamp - id(last_position_timestamp));
-                if (pos < 0) pos = 0;
-                float dur = id(media_duration_sensor).has_state() ? id(media_duration_sensor).state : 0.0f;
-                if (dur > 0 && pos > dur) pos = dur;
-              }
-            }
-            char buf[12];
-            int sec = (int)pos;
-            if (sec < 0) sec = 0;
-            int m = sec / 60;
-            int s = sec % 60;
-            snprintf(buf, sizeof(buf), "%02d:%02d", m, s);
-            return std::string(buf);
-      - lvgl.bar.update:
-          id: media_progress_bar
-          value: !lambda |-
-            float pos = id(last_position_timestamp) != 0 && id(media_position_sensor).has_state()
-              ? id(media_position_sensor).state : id(last_media_position);
-            if (id(media_player_state_sensor).state == "playing") {
-              auto t = id(sntp_time).now();
-              if (t.is_valid() && id(last_position_timestamp) != 0) {
-                pos = id(last_media_position) + (t.timestamp - id(last_position_timestamp));
-                if (pos < 0) pos = 0;
-                float dur = id(media_duration_sensor).has_state() ? id(media_duration_sensor).state : 0.0f;
-                if (dur > 0 && pos > dur) pos = dur;
-              }
-            }
-            float dur = id(media_duration_sensor).has_state() ? id(media_duration_sensor).state : 0.0f;
-            if (dur > 0) return (int)((pos / dur) * 100.0f);
-            return 0;
+      - if:
+          condition:
+            lambda: 'return !id(media_source_sensor).has_state() || id(media_source_sensor).state != "${tv_source}";'
+          then:
+            - lvgl.label.update:
+                id: media_elapsed_label
+                text: !lambda |-
+                  float pos = id(last_position_timestamp) != 0 && id(media_position_sensor).has_state()
+                    ? id(media_position_sensor).state : id(last_media_position);
+                  if (id(media_player_state_sensor).state == "playing") {
+                    auto t = id(sntp_time).now();
+                    if (t.is_valid() && id(last_position_timestamp) != 0) {
+                      pos = id(last_media_position) + (t.timestamp - id(last_position_timestamp));
+                      if (pos < 0) pos = 0;
+                      float dur = id(media_duration_sensor).has_state() ? id(media_duration_sensor).state : 0.0f;
+                      if (dur > 0 && pos > dur) pos = dur;
+                    }
+                  }
+                  char buf[12];
+                  int sec = (int)pos;
+                  if (sec < 0) sec = 0;
+                  int m = sec / 60;
+                  int s = sec % 60;
+                  snprintf(buf, sizeof(buf), "%02d:%02d", m, s);
+                  return std::string(buf);
+            - lvgl.bar.update:
+                id: media_progress_bar
+                value: !lambda |-
+                  float pos = id(last_position_timestamp) != 0 && id(media_position_sensor).has_state()
+                    ? id(media_position_sensor).state : id(last_media_position);
+                  if (id(media_player_state_sensor).state == "playing") {
+                    auto t = id(sntp_time).now();
+                    if (t.is_valid() && id(last_position_timestamp) != 0) {
+                      pos = id(last_media_position) + (t.timestamp - id(last_position_timestamp));
+                      if (pos < 0) pos = 0;
+                      float dur = id(media_duration_sensor).has_state() ? id(media_duration_sensor).state : 0.0f;
+                      if (dur > 0 && pos > dur) pos = dur;
+                    }
+                  }
+                  float dur = id(media_duration_sensor).has_state() ? id(media_duration_sensor).state : 0.0f;
+                  if (dur > 0) return (int)((pos / dur) * 100.0f);
+                  return 0;
 
 text_sensor:
   - platform: homeassistant
@@ -131,6 +135,37 @@ text_sensor:
                 id: media_play_icon
             - lvgl.widget.hide:
                 id: media_pause_icon
+
+  - platform: homeassistant
+    entity_id: ${media_player}
+    id: media_source_sensor
+    attribute: source
+    on_value:
+      - if:
+          condition:
+            lambda: 'return x == "${tv_source}";'
+          then:
+            # --- Enter TV mode ---
+            - lvgl.widget.hide: album_art_background_widget
+            - lvgl.widget.hide: media_title_label
+            - lvgl.widget.hide: media_artist_label
+            - lvgl.widget.hide: media_next_button
+            - lvgl.widget.hide: media_previous_button
+            - lvgl.widget.hide: media_elapsed_label
+            - lvgl.widget.hide: media_duration_label
+            - lvgl.widget.hide: media_progress_bar
+            - lvgl.widget.show: tv_source_label
+          else:
+            # --- Exit TV mode (music mode) ---
+            - lvgl.widget.show: album_art_background_widget
+            - lvgl.widget.show: media_title_label
+            - lvgl.widget.show: media_artist_label
+            - lvgl.widget.show: media_next_button
+            - lvgl.widget.show: media_previous_button
+            - lvgl.widget.show: media_elapsed_label
+            - lvgl.widget.show: media_duration_label
+            - lvgl.widget.show: media_progress_bar
+            - lvgl.widget.hide: tv_source_label
 
 sensor:
   - platform: homeassistant
