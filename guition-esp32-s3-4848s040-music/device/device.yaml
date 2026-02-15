@@ -158,6 +158,9 @@ globals:
   - id: touch_y_end
     type: int
     initial_value: '0'
+  - id: swipe_direction
+    type: int
+    initial_value: '0'
 
 
 # -----------------------------------------------------------------------------
@@ -194,43 +197,29 @@ touchscreen:
       - lambda: |-
           int dx = id(touch_x_end) - id(touch_x_start);
           int dy = id(touch_y_end) - id(touch_y_start);
-          ESP_LOGI("swipe", "RELEASE dx=%d dy=%d (start=%d,%d end=%d,%d)",
-                   dx, dy,
-                   id(touch_x_start), id(touch_y_start),
-                   id(touch_x_end), id(touch_y_end));
-          // Require 80px+ horizontal movement and must be clearly horizontal
+          id(swipe_direction) = 0;
           if (abs(dx) > 80 && abs(dx) > abs(dy) * 2) {
-            if (dx > 0) {
-              ESP_LOGI("swipe", "SWIPE RIGHT -> previous track");
-              id(swipe_previous_track).execute();
-            } else {
-              ESP_LOGI("swipe", "SWIPE LEFT -> next track");
-              id(swipe_next_track).execute();
-            }
+            id(swipe_direction) = (dx > 0) ? 1 : -1;
           }
-
-
-# -----------------------------------------------------------------------------
-# SWIPE GESTURE SCRIPTS
-# -----------------------------------------------------------------------------
-# Called by touchscreen on_release when a horizontal swipe is detected.
-# mode: single prevents duplicate triggers from rapid swipes.
-# -----------------------------------------------------------------------------
-script:
-  - id: swipe_next_track
-    mode: single
-    then:
-      - homeassistant.service:
-          service: media_player.media_next_track
-          data:
-            entity_id: ${media_player}
-  - id: swipe_previous_track
-    mode: single
-    then:
-      - homeassistant.service:
-          service: media_player.media_previous_track
-          data:
-            entity_id: ${media_player}
+          ESP_LOGI("swipe", "RELEASE dx=%d dy=%d dir=%d", dx, dy, id(swipe_direction));
+      - if:
+          condition:
+            lambda: 'return id(swipe_direction) == -1;'
+          then:
+            - logger.log: "Swipe left -> next track"
+            - homeassistant.service:
+                service: media_player.media_next_track
+                data:
+                  entity_id: ${media_player}
+      - if:
+          condition:
+            lambda: 'return id(swipe_direction) == 1;'
+          then:
+            - logger.log: "Swipe right -> previous track"
+            - homeassistant.service:
+                service: media_player.media_previous_track
+                data:
+                  entity_id: ${media_player}
 
 
 # -----------------------------------------------------------------------------
